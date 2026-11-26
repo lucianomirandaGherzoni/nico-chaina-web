@@ -267,7 +267,7 @@ button, input { font: inherit; }
 .whatsapp-flotante {
   position: fixed; z-index: 50;
   right: calc(16px + env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom));
-  width: 56px; height: 56px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: var(--verde-whatsapp); color: #FFFFFF;
   box-shadow: 0 6px 20px rgba(20, 21, 63, 0.28);
@@ -279,10 +279,11 @@ button, input { font: inherit; }
 .resumen__titulo { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--texto-suave); }
 .boton-whatsapp {
   min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: var(--verde-whatsapp); color: #FFFFFF; text-decoration: none;
+  background: var(--acento); color: #FFFFFF; text-decoration: none;
   font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
 }
-.boton-whatsapp:hover { background: #156236; color: #FFFFFF; }
+.boton-whatsapp:hover { background: var(--acento-oscuro); color: #FFFFFF; }
+.boton-whatsapp:focus-visible { outline-offset: 3px; }
 .formulario__volver {
   align-self: flex-start; min-height: 44px; padding: 0; cursor: pointer; background: transparent; border: 0;
   font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--texto-suave);
