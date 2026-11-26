@@ -277,6 +277,39 @@ function iniciarFormulario() {
   render(false);
 }
 
+function iniciarSliderTestimonios() {
+  const slider = document.querySelector('[data-slider]');
+  if (!slider) return;
+  const tarjetas = [...slider.children];
+  const puntos = [...document.querySelectorAll('[data-slider-puntos] button')];
+  const videos = tarjetas.map((t) => t.querySelector('video'));
+  const suave = () => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+
+  const marcar = (indice) => puntos.forEach((p, i) => p.setAttribute('aria-current', String(i === indice)));
+  const indiceActual = () => {
+    const centro = slider.scrollLeft + slider.clientWidth / 2;
+    let mejor = 0;
+    tarjetas.forEach((t, i) => {
+      if (Math.abs(t.offsetLeft + t.offsetWidth / 2 - centro) < Math.abs(tarjetas[mejor].offsetLeft + tarjetas[mejor].offsetWidth / 2 - centro)) mejor = i;
+    });
+    return mejor;
+  };
+
+  let pendiente = false;
+  slider.addEventListener('scroll', () => {
+    if (pendiente) return;
+    pendiente = true;
+    requestAnimationFrame(() => { pendiente = false; marcar(indiceActual()); });
+  }, { passive: true });
+
+  puntos.forEach((p, i) => p.addEventListener('click', () => {
+    slider.scrollTo({ left: tarjetas[i].offsetLeft - parseFloat(getComputedStyle(slider).scrollPaddingLeft || 0), behavior: suave() });
+  }));
+
+  // Con un solo video sonando a la vez se evita que se superpongan los audios al deslizar.
+  videos.forEach((v) => v && v.addEventListener('play', () => videos.forEach((otro) => { if (otro && otro !== v) otro.pause(); })));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   iniciarMenu();
   iniciarEnlacesWhatsapp();
@@ -285,4 +318,5 @@ document.addEventListener('DOMContentLoaded', () => {
   iniciarFormulario();
   iniciarRevelado();
   iniciarVideosVisibles();
+  iniciarSliderTestimonios();
 });

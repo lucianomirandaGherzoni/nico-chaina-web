@@ -270,7 +270,7 @@
   <div class="testimonios__caja">
     <h2>Testimonios</h2>
     <div class="testimonios__linea" aria-hidden="true"></div>
-    <div class="testimonios__videos">
+    <div class="testimonios__videos" role="region" aria-label="Videos de testimonios" tabindex="0" data-slider>
       <figure class="testimonio-video">
         <video src="video/testimonio.mp4" poster="imagenes/testimonio-poster.webp" controls playsinline preload="none" width="720" height="1280" aria-label="Video: testimonio de un paciente"></video>
         <figcaption>Testimonio en primera persona</figcaption>
@@ -279,6 +279,10 @@
         <video src="video/testimonios-capturas.mp4" poster="imagenes/testimonios-capturas-poster.webp" controls muted playsinline preload="none" width="540" height="960" aria-label="Capturas de mensajes de agradecimiento de pacientes por WhatsApp"></video>
         <figcaption>Mensajes que me alegran la vida</figcaption>
       </figure>
+    </div>
+    <div class="testimonios__puntos" data-slider-puntos>
+      <button type="button" aria-label="Ver video 1 de 2" aria-current="true"></button>
+      <button type="button" aria-label="Ver video 2 de 2"></button>
     </div>
   </div>
 </section>
@@ -338,8 +342,11 @@
 </main>
 
 <footer class="pie">
+  <div class="pie__marca contenedor">
+    <img src="imagenes/logo-completo-azul.webp" alt="Nicolás Chaina · Terapias holísticas" width="318" height="144" loading="lazy">
+  </div>
   <div class="pie__fila contenedor">
-    <span class="pie__marca"><img src="imagenes/logo-completo-azul.webp" alt="Nicolás Chaina · Terapias holísticas" width="318" height="144" loading="lazy">Sesiones en Córdoba y online</span>
+    <p class="pie__sesiones">Sesiones en Córdoba y online</p>
     <nav class="pie__redes" aria-label="Redes sociales">
       <a href="https://instagram.com/nico_terapeuta" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.tiktok.com/@TU-USUARIO" target="_blank" rel="noopener">TikTok</a>
