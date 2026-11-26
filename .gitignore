@@ -1,0 +1,9 @@
+# Originales de fotos y videos (4K, ~240 MB): la página usa las versiones optimizadas de imagenes/ y video/
+img/
+
+.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
