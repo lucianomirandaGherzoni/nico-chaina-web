@@ -65,8 +65,6 @@ button, input { font: inherit; }
   transition: background-color .2s ease, border-color .2s ease;
 }
 .flecha:hover { border-color: var(--acento); }
-.flecha--clara { border-color: #B9BAE0; background: transparent; color: #FFFFFF; }
-.flecha--clara:hover { background: rgba(255, 255, 255, 0.1); border-color: #FFFFFF; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 680px; background: var(--noche); overflow: hidden; display: flex; flex-direction: column; }
@@ -234,11 +232,6 @@ button, input { font: inherit; }
 .testimonio-video { width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 12px; }
 .testimonio-video video { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 14px; background: var(--noche); box-shadow: 0 18px 40px rgba(8, 8, 30, 0.35); }
 .testimonio-video figcaption { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #B9BAE0; text-align: center; }
-.testimonios__grilla { display: grid; gap: 20px; }
-.testimonio { display: flex; flex-direction: column; gap: 12px; }
-.testimonio.es-nuevo { animation: entrar 0.45s ease; }
-.testimonio blockquote { font-size: 15px; line-height: 1.75; font-style: italic; color: #E8E8F6; }
-.testimonio figcaption { font-size: 11px; letter-spacing: 0.12em; color: #B9BAE0; }
 
 /* ---------- Reservar ---------- */
 .reservar { background: var(--fondo-suave); }
@@ -315,7 +308,7 @@ button, input { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .onda__linea { stroke-dashoffset: 0; }
-  .onda.es-visible .onda__linea, .onda.es-visible .onda__punto, .rueda__panel.es-nuevo, .testimonio.es-nuevo { animation: none; }
+  .onda.es-visible .onda__linea, .onda.es-visible .onda__punto, .rueda__panel.es-nuevo { animation: none; }
   .onda__punto { opacity: 1; }
   .js .revelar { opacity: 1; transform: none; transition: none; }
   .cierre__video { display: none; }
@@ -424,11 +417,6 @@ button, input { font: inherit; }
   .testimonios__linea { display: block; width: 100%; max-width: 820px; height: 1px; background: #4A4C9A; }
   .testimonios__videos { flex-direction: row; justify-content: center; align-items: flex-start; gap: 32px; margin: 0; }
   .testimonio-video { width: 280px; }
-  .testimonios__grilla { width: 100%; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-  .testimonio { gap: 14px; }
-  .testimonio blockquote { line-height: 1.8; }
-  .testimonio figcaption { font-size: 12px; letter-spacing: 0.14em; }
-  .testimonios .flechas { gap: 12px; }
 
   .reservar__fila { padding: 104px 24px; flex-direction: row; flex-wrap: wrap; gap: 56px; align-items: flex-start; }
   .reservar__intro { flex: 1 1 320px; min-width: 0; }

@@ -3,13 +3,6 @@
 // Reemplazar por el número real de Nico en formato internacional, sin "+" ni espacios (ej. 5493511234567).
 const TELEFONO_WHATSAPP = '549XXXXXXXXXX';
 
-const TESTIMONIOS = [
-  { texto: '[Testimonio real de un paciente]', autor: '[Nombre]' },
-  { texto: '[Testimonio real de un paciente]', autor: '[Nombre]' },
-  { texto: '[Testimonio real de un paciente]', autor: '[Nombre]' },
-  { texto: '[Testimonio real de un paciente]', autor: '[Nombre]' }
-];
-
 const RUEDA = {
   norte: { dir: 'Norte', animal: 'Colibrí', rito: 'Recuperación de Alma', texto: '[Explicación de Nico sobre Recuperación de Alma]' },
   este: { dir: 'Este', animal: 'Cóndor', rito: 'Rito de Muerte', texto: '[Explicación de Nico sobre el Rito de Muerte]' },
@@ -181,39 +174,6 @@ function iniciarRueda() {
   arcos.forEach((a) => a.classList.toggle('esta-activo', a.dataset.arco === actual));
 }
 
-function iniciarTestimonios() {
-  const grilla = document.querySelector('.testimonios__grilla');
-  if (!grilla) return;
-  const porPagina = 2;
-  const paginas = Math.ceil(TESTIMONIOS.length / porPagina);
-  let pagina = 0;
-
-  const crearTestimonio = ({ texto, autor }) => {
-    const figura = document.createElement('figure');
-    figura.className = 'testimonio';
-    const cita = document.createElement('blockquote');
-    cita.textContent = '“' + texto + '”';
-    const pie = document.createElement('figcaption');
-    pie.textContent = '— ' + autor;
-    figura.append(cita, pie);
-    return figura;
-  };
-
-  const mostrar = (animar) => {
-    const inicio = pagina * porPagina;
-    const items = TESTIMONIOS.slice(inicio, inicio + porPagina).map(crearTestimonio);
-    grilla.replaceChildren(...items);
-    if (animar) items.forEach(reiniciarAnimacion);
-  };
-
-  document.querySelectorAll('[data-testimonios-paso]').forEach((b) => b.addEventListener('click', () => {
-    pagina = (pagina + Number(b.dataset.testimoniosPaso) + paginas) % paginas;
-    mostrar(true);
-  }));
-  if (paginas <= 1) document.querySelectorAll('[data-testimonios-paso]').forEach((b) => { b.hidden = true; });
-  mostrar(false);
-}
-
 function iniciarFormulario() {
   const raiz = document.querySelector('.formulario');
   if (!raiz) return;
@@ -294,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
   iniciarEnlacesWhatsapp();
   iniciarOnda();
   iniciarRueda();
-  iniciarTestimonios();
   iniciarFormulario();
   iniciarRevelado();
   iniciarVideosVisibles();

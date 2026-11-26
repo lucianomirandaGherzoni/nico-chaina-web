@@ -19,4 +19,4 @@ Los originales de alta resolución van en `img/`, que no se versiona.
 - Número de WhatsApp real en `js/principal.js` (`TELEFONO_WHATSAPP`).
 - Reemplazar `TU-DOMINIO.com.ar` en `index.html`, `robots.txt` y `sitemap.xml`.
 - Usuario de TikTok en el pie (`index.html`).
-- Testimonios y textos de la Rueda Medicinal (`js/principal.js`).
+- Textos de la Rueda Medicinal (`js/principal.js`).
