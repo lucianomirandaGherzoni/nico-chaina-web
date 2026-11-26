@@ -450,8 +450,8 @@ button, input { font: inherit; }
   /* Alto intermedio: recorta poco del video (1600×844) sin que la sección quede gigante */
   .cierre { display: flex; align-items: center; min-height: min(38vw, 540px); }
   .cierre__video { object-position: center 65%; }
-  .cierre__texto { padding: 80px 24px; }
-  .cierre h2 { font-size: clamp(26px, 3vw, 40px); }
+  .cierre__texto { max-width: 1160px; padding: 80px 24px; }
+  .cierre h2 { font-size: clamp(26px, 2.6vw, 38px); }
   .cierre .boton { padding: 0 22px; }
 
   .pie__fila { padding-left: 24px; padding-right: 24px; flex-direction: row; flex-wrap: wrap; gap: 16px; justify-content: space-between; text-align: left; }
