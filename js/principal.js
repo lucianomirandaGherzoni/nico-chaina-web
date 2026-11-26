@@ -121,6 +121,13 @@ function iniciarVideosVisibles() {
   const videos = document.querySelectorAll('video[data-reproducir-visible]');
   if (!videos.length || !('IntersectionObserver' in window)) return;
   const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const esDesktop = window.matchMedia('(min-width: 900px)').matches;
+
+  videos.forEach((video) => {
+    const src = esDesktop ? video.dataset.srcDesktop : video.dataset.srcMobile;
+    if (src) video.src = src;
+    video.addEventListener('playing', () => video.classList.add('esta-reproduciendo'), { once: true });
+  });
 
   const observador = new IntersectionObserver((entradas) => {
     entradas.forEach(({ target: video, isIntersecting }) => {

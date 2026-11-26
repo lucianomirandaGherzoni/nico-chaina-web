@@ -18,9 +18,9 @@
 <meta property="og:description" content="Terapias holísticas y corporales bioenergéticas en Córdoba y online. Reservá tu sesión.">
 <meta property="og:url" content="https://TU-DOMINIO.com.ar/">
 <meta property="og:image" content="https://TU-DOMINIO.com.ar/imagenes/og.jpg">
-<meta property="og:image:width" content="1124">
-<meta property="og:image:height" content="590">
-<meta property="og:image:alt" content="Sesión de trabajo corporal en el suelo">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Encendiendo palo santo junto a una vela y cuencos">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nicolás Chaina · Habitar el cuerpo">
 <meta name="twitter:description" content="Terapias holísticas y corporales bioenergéticas en Córdoba y online.">
@@ -29,7 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500;600&display=swap">
-<link rel="preload" as="image" href="imagenes/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="imagenes/hero-poster-mobile.webp" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" href="imagenes/hero-poster.webp" media="(min-width: 900px)" fetchpriority="high">
 <link rel="stylesheet" href="css/estilos.css">
 
 <script type="application/ld+json">
@@ -65,7 +66,11 @@
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <section id="inicio" class="hero">
-  <img class="hero__fondo" src="imagenes/hero.webp" alt="" width="1124" height="750" fetchpriority="high">
+  <picture class="hero__fondo">
+    <source media="(min-width: 900px)" srcset="imagenes/hero-poster.webp" width="1600" height="900">
+    <img src="imagenes/hero-poster-mobile.webp" alt="" width="540" height="960" fetchpriority="high">
+  </picture>
+  <video class="hero__video" muted loop playsinline preload="none" data-reproducir-visible data-src-mobile="video/hero-mobile.mp4" data-src-desktop="video/hero.mp4" aria-hidden="true"></video>
   <div class="hero__velo" aria-hidden="true"></div>
 
   <header class="cabecera">

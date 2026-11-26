@@ -68,7 +68,9 @@ button, input { font: inherit; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 680px; background: var(--noche); overflow: hidden; display: flex; flex-direction: column; }
-.hero__fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; }
+.hero__fondo, .hero__fondo img, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero__video { opacity: 0; transition: opacity .8s ease; }
+.hero__video.esta-reproduciendo { opacity: 1; }
 .hero__velo {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(14, 14, 40, 0.6) 0%, rgba(14, 14, 40, 0.15) 30%, rgba(14, 14, 40, 0.35) 55%, rgba(14, 14, 40, 0.85) 100%);
@@ -324,7 +326,6 @@ button, input { font: inherit; }
   .titulo { font-size: clamp(34px, 4vw, 48px); line-height: 1.08; }
 
   .hero { min-height: 760px; }
-  .hero__fondo { object-position: center; }
   .hero__velo {
     background:
       linear-gradient(90deg, rgba(14, 14, 40, 0.78) 0%, rgba(14, 14, 40, 0.35) 55%, rgba(14, 14, 40, 0.1) 100%),
