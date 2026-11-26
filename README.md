@@ -17,6 +17,6 @@ Los originales de alta resolución van en `img/`, que no se versiona.
 ## Pendiente antes de publicar
 
 - Número de WhatsApp real en `js/principal.js` (`TELEFONO_WHATSAPP`).
-- Reemplazar `TU-DOMINIO.com.ar` en `index.html`, `robots.txt` y `sitemap.xml`.
+- Si se usa un dominio propio, reemplazar `https://nico-chaina-web.vercel.app` en `index.html`, `robots.txt` y `sitemap.xml`.
 - Usuario de TikTok en el pie (`index.html`).
 - Textos de la Rueda Medicinal (`js/principal.js`).
