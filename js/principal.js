@@ -48,8 +48,10 @@ function iniciarMenu() {
   });
 }
 
+const MENSAJE_GENERAL = 'Hola Nico! Quería consultarte por una sesión.';
+
 function iniciarEnlacesWhatsapp() {
-  document.querySelectorAll('[data-whatsapp]').forEach((a) => { a.href = enlaceWhatsapp(); });
+  document.querySelectorAll('[data-whatsapp]').forEach((a) => { a.href = enlaceWhatsapp(MENSAJE_GENERAL); });
 }
 
 function iniciarOnda() {
@@ -188,14 +190,20 @@ function iniciarFormulario() {
   const ui = {
     paso: $('paso'), etiqueta: $('etiqueta'), barra: $('barra'),
     eleccion: $('eleccion'), pregunta: $('pregunta'), opciones: $('opciones'),
-    final: $('final'), preguntaFinal: $('pregunta-final'), enviar: $('enviar'), volver: $('volver')
+    final: $('final'), preguntaFinal: $('pregunta-final'), enviar: $('enviar'), volver: $('volver'),
+    error: $('error')
   };
   const inputNombre = raiz.querySelector('#f-nombre');
   const estado = { paso: 0, respuestas: {} };
 
+  const leerNombre = () => inputNombre.value.trim().replace(/\s+/g, ' ').slice(0, 60);
+  const marcarError = (mensaje) => {
+    ui.error.textContent = mensaje;
+    inputNombre.setAttribute('aria-invalid', String(Boolean(mensaje)));
+  };
   const armarMensaje = () => {
     const r = estado.respuestas;
-    const nombre = inputNombre.value.trim().replace(/\s+/g, ' ').slice(0, 60) || '[nombre]';
+    const nombre = leerNombre();
     return 'Hola Nico! Soy ' + nombre + '. Quiero consultar por un turno.\n'
       + '• Terapia: ' + (r.terapia || '-') + '\n'
       + '• Modalidad: ' + (r.modalidad || '-') + '\n'
@@ -245,7 +253,20 @@ function iniciarFormulario() {
     estado.paso = Math.max(0, estado.paso - 1);
     render(true);
   });
-  inputNombre.addEventListener('input', actualizarEnlace);
+  inputNombre.addEventListener('input', () => {
+    if (leerNombre()) marcarError('');
+    actualizarEnlace();
+  });
+  // El autocompletado de algunos navegadores no dispara "input": se rearma el enlace justo al tocar enviar.
+  ui.enviar.addEventListener('click', (e) => {
+    if (!leerNombre()) {
+      e.preventDefault();
+      marcarError('Escribí tu nombre para que Nico sepa quién le escribe.');
+      inputNombre.focus();
+      return;
+    }
+    actualizarEnlace();
+  });
 
   document.querySelectorAll('[data-terapia]').forEach((enlace) => enlace.addEventListener('click', () => {
     estado.respuestas.terapia = enlace.dataset.terapia;
